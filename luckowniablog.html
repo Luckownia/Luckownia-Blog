@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Luckownia- blog o zarabianiu pieniedzy </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        :root {
+            --bgcColor: #F5F5F5;
+            --heightNav: 70px;
+            --promocjaColor: #D1CBB9;
+
+
+        }
+
+
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {}
+
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bgcColor);
+            font-family: 'Roboto', sans-serif;
+            height: auto;
+            width: auto;
+
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-page {
+            background-color: white;
+            height: 500px;
+            width: 80vw;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px 0 10px;
+            height: var(--heightNav);
+            overflow: hidden;
+            font-size: 16px;
+
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 25px;
+            margin: 0 0 0 20px;
+        }
+
+        .menu li {
+            list-style-type: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+            margin: 0 20px;
+            padding: 15px 0 8px 0;
+            position: relative;
+            font-size: 1em;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 5px;
+            background-color: white;
+            transition: transform .5s;
+
+        }
+
+
+        .nav-link:hover::after {
+            content: "";
+            transform: translateX(100%);
+
+        }
+
+
+        .intr-page {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .intr {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 0 0 50px;
+            font-size: 10px;
+
+        }
+
+        .intr .fas {
+            font-size: 35px;
+            margin: 10px 0 0 0;
+            animation: arrowDown 1s infinite ease-out;
+        }
+
+        .intr h1 {
+            text-transform: uppercase;
+            font-size: 3.2em;
+        }
+
+
+        .intr h3 {
+            font-family: Roboto;
+            font-style: normal;
+            font-size: 2.5em;
+            line-height: 35px;
+            font-weight: 500;
+            margin: 0;
+
+        }
+
+
+        .btn-sprawdz {
+            background-color: #517AB7;
+            border: 4px solid #517AB7;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 5px 20px;
+            text-transform: uppercase;
+            font-size: 2em;
+            text-align: center;
+            margin: 30px 0 0 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color .5s ease-out;
+        }
+
+        .btn-sprawdz::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            transition: transform .5s ease-out;
+            background-color: white;
+            z-index: -1;
+        }
+
+        .btn-sprawdz:hover::before {
+            transform: translateY(-100%);
+        }
+
+        .btn-sprawdz:hover {
+            color: #517AB7;
+        }
+
+        /*Sekcja Zarabiaj jak Luckownia*/
+        .earn-as-luckownia {
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .about-us {
+            display: flex;
+            justify-content: center;
+        }
+
+        .headings {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .about-us-description {
+            display: flex;
+            align-items: center;
+            margin: 20px 0 0 0;
+        }
+
+        .about-us-description p {
+            text-align: justify;
+            margin: 0 0 0 40px;
+            font-size: 1.6em;
+        }
+
+        /*Najlepsze promocje */
+        .promocje {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .promocje-section {
+            background-color: var(--promocjaColor);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.7);
+
+        }
+
+
+        .promocje h2::after {
+            content: url("money.png");
+            margin: 0 0 0 5px;
+        }
+
+        .promocje-sections {
+            width: 80vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 30px;
+            margin: 30px 0 0 0;
+
+        }
+
+        .photo-promocja {
+            padding: 40px 0 0 0;
+        }
+
+        .description-promocje {
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .info-promocja {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0 0 0;
+        }
+
+        .termin-waznosci {
+            justify-self: flex-end;
+            align-self: flex-start;
+            background-color: #847F66;
+            width: 140px;
+            padding: 5px;
+            font-weight: 500;
+            font-size: 14px;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .btn-promocja {
+            align-self: flex-end;
+            justify-self: flex-end;
+            text-decoration: none;
+            color: black;
+            margin: 0 20px 20px 0;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-promocja::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #887666;
+            z-index: -1;
+            transition: transform .6s ease-out;
+        }
+
+        .btn-promocja:hover::before {
+            transform: translateX(95px);
+        }
+
+        .btn-promocja .fas {
+            font-size: 20px;
+            margin: 0 0 0 10px;
+            animation: arrowRight 1s infinite ease-out;
+        }
+
+        /*FAQ*/
+        .fqa {
+            margin: 60px 0 50px 0;
+        }
+
+        .fqa h2::after {
+            content: url(question.png);
+
+        }
+
+        .answer {
+            background-color: #F0BB7A;
+            padding: 10px 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .answer h4::after {
+            content: url("question%20(1).png");
+        }
+
+        .group-answers {
+            width: 80vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 30px;
+            margin: 30px auto 0 auto;
+
+        }
+
+        /*Kontakt*/
+        .contact {
+            text-align: center;
+
+        }
+
+        .form-contact {
+            width: 65vw;
+            display: flex;
+            background-color: #2F9ABB;
+            margin: 30px auto 0 auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.39);
+        }
+
+        .ilustration-question {
+            border-right: 2px solid white;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 30px 0 0 60px;
+            padding: 10px;
+        }
+
+        label {
+            color: white;
+        }
+
+        .form-input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid white;
+            color: white;
+            height: 20px;
+            transition: border-color 1s;
+
+        }
+
+
+        .message-label {
+            margin: 0 0 10px 0;
+        }
+
+        .form textarea {
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            color: white;
+            padding: 5px;
+        }
+
+        .form textarea::placeholder {
+            color: white;
+            transition: color .3s;
+        }
+
+        .form textarea:focus::placeholder {
+            color: transparent;
+        }
+
+
+        .btn-submit {
+            background-color: #2F9ABB;
+            color: white;
+            padding: 10px 40px;
+            align-self: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 4px solid #298C9E;
+            z-index: 1;
+        }
+
+        .btn-submit::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #298C9E;
+            z-index: -1;
+            transition: transform .5s ease-out;
+        }
+
+        .btn-submit:hover::before {
+            transform: translateX(100%);
+        }
+
+
+
+        /*footer*/
+
+        .footer {
+            margin: 50px 0 0 0;
+            background-color: #2F3543;
+            color: #FAF3F3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-media .fab {
+            margin: 0 5px;
+            font-size: 24px;
+        }
+
+        .social-media .fab:hover {
+            cursor: pointer;
+        }
+
+
+
+        @media (max-width:1024px) {
+            .about-us-description {
+                flex-direction: column;
+
+            }
+
+            .about-us-description p {
+                margin: 20px 0 0 0;
+                text-align-last: center;
+            }
+
+            .about-us-description img {
+                width: 250px;
+            }
+
+            .earn-as-luckownia {
+                font-size: 8px;
+            }
+
+            .form-contact {
+                width: 80vw;
+            }
+
+            .intr {
+                font-size: 9px;
+            }
+
+            .main-page {
+                width: 90vw;
+            }
+
+            .navbar {
+                font-size: 13px;
+            }
+
+
+        }
+
+        @media (max-width:900px) {
+            .ilustration-question {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .ilustration-question img {
+                width: 300px;
+            }
+        }
+
+
+        @media (max-width:850px) {
+            .frame {
+                display: none;
+            }
+
+            .intr {
+                margin: 0;
+                height: 440px;
+            }
+        }
+
+
+
+        @media (max-width:800px) {
+            .form {
+                margin: 0 0 0 20px;
+            }
+        }
+
+
+
+        @media (max-width:700px) {
+            .ilustration-question {
+                display: none;
+            }
+
+            .form-contact {
+                display: flex;
+                justify-content: center;
+            }
+
+            .form {
+                margin: 15px 0 0 0;
+                padding: 0;
+            }
+
+            .btn-submit {
+                margin: 0 0 10px 0;
+            }
+
+            .earn-as-luckownia {
+                font-size: 7px;
+            }
+
+            .nav-link {
+                margin: 0 10px;
+            }
+        }
+
+
+        @keyframes arrowDown {
+            from {
+                transform: translateY(0)
+            }
+
+            to {
+                transform: translateY(30px);
+            }
+        }
+
+        /*
+        @keyframes arrowRight {
+            from {
+                transform: translateX(0);
+
+            }
+
+            to {
+                transform: translateX(10px);
+            }
+        }
+        */
+
+    </style>
+</head>
+
+<body>
+    <div id="main-page" class="container">
+        <div class="main-page">
+            <nav class="navbar">
+                <span class="logo">L</span>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="#main-page" class="nav-link nav-link1">Strona Główna</a>
+                            <a href="#nas" class="nav-link nav-link2">O nas</a>
+                            <a href="#zarabianie" class="nav-link nav-link3">Zarabianie</a>
+                            <a href="#fqas" class="nav-link nav-link4">FQA</a>
+                            <a href="#contact" class="nav-link nav-link5">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <header class="intr-page">
+                <div class="intr">
+                    <h1>Luckownia</h1>
+                    <h3>Blog o zarabianiu pieniedzy</h3>
+                    <h3> Jak zarobić a się nie orobić</h3>
+                    <a href="#nas" class="btn-sprawdz">Sprawdz</a>
+                    <i class="fas fa-angle-double-down"></i>
+                </div>
+                <div class="frame">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_ihxIYc.json" background="transparent" speed="1" style="width: 450px; height: 440px;" loop autoplay></lottie-player>
+
+                </div>
+            </header>
+        </div>
+    </div>
+    <main>
+        <article id="nas" class="about-us">
+            <div class="earn-as-luckownia">
+                <h2 class="headings">Zarabiaj jak Luckownia</h2>
+                <div class="about-us-description">
+                    <img src="illustration-for-investment-concept%20(1).png" alt="Kruk z workiem pieniedzy">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved.s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
+                </div>
+            </div>
+        </article>
+        <article id="zarabianie" class="promocje">
+            <h2 class="headings">Najlepsze promocje</h2>
+            <div class="promocje-sections">
+                <section class="promocje-section">
+                    <img src="alior.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>400zł premii za Konto Jakże Osobiste</h4>
+                    <p class="description-promocje">
+                        Kolejna kumulacja promocji konta osobistego Alior Banku znów dostępna. W zamian za założenie Konta Jakże Osobistego zgarniemy do 300 zł w gotówce oraz 100 zł w ramach programu Bezcenne Chwile
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+                    </div>
+                </section>
+                <section class="promocje-section">
+                    <img src="pekao.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>150zł premii za Konto Przekorzystne</h4>
+                    <p class="description-promocje">
+                        W najnowszej ofercie banku zyskamy 150 zł nagrody za założenie Konta Przekorzystnego (100 zł w gotówce oraz 50 zł w bonie do wybranego sklepu) oraz kolejne 200 zł w gotówce za wyrobienie karty kredytowej.
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+                    </div>
+                </section>
+                <section class="promocje-section">
+                    <img src="milenium.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>270zł premii za Konto 360</h4>
+                    <p class="description-promocje">
+                        W zamian za założenie Konta 360° lub Konta 360° Student zyskamy aż 270 zł bonusu za spełnienie prostych warunków promocji. Na nagrodę składa się 150 zł premii w gotówce, 100 zł na zakupy w Allegro oraz 20 zł w formie cashbacku goodie.
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+                    </div>
+                </section>
+                <section class="promocje-section">
+                    <img src="santader.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>250zł premii za Konto Jakie Chcę</h4>
+                    <p class="description-promocje">
+                        nagrody (od 150 do 200 zł w bonie do Biedronki, RTV Euro AGD lub Decathlon oraz 50 zł w gotówce). Tym samym w zamian za założenie konta osobistego otrzymamy 200 zł nagrody na start oraz 50 zł bonusu za konto założone dziecku.
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+                    </div>
+                </section>
+                <section class="promocje-section">
+                    <img src="credit.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>200zł premii za Konto "Korzyści dla ciebie"</h4>
+                    <p class="description-promocje">
+                        można zarobić nawet 200 zł w gotówce za przeniesienia konta lub płatności mobilne i kartą. A to nie koniec zysków – premię można podwyższyć o kolejne 500 zł za polecanie znajomych.
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+
+                    </div>
+                </section>
+                <section class="promocje-section">
+                    <img src="mbank.png" class="photo-promocja" alt="premi 400zl za otworzenie konta w alior banku" width="300px">
+                    <h4>160zł premii za eKonto w mbanku</h4>
+                    <p class="description-promocje">
+                        mBank wystartował z X edycją promocji „eKonto z premią”. Warunki promocji są bardzo podobne do ostatniej edycji z tymże obecnie zyskamy aż 160 zł premii pieniężnej za założenie konta oraz 2% odsetek na rachunku Moje Cele
+                    </p>
+                    <div class="info-promocja">
+                        <div class="termin-waznosci">Promocja ważna do: 2021-02-28</div>
+                        <a href="#" class="btn-promocja">Czytaj więcej<i class="fas fa-caret-right"></i></a>
+
+                    </div>
+                </section>
+            </div>
+        </article>
+        <article id="fqas" class="fqa">
+            <h2 class="headings">FQA</h2>
+
+            <div class="group-answers">
+                <section class="answer">
+                    <h4>Dlaczego banki dają mi pieniądze za friko?</h4>
+                    <p>Banki doskonale wiedzą, że klienci chętniej skorzystają z promocji, jeżeli dostaną coś atrakcyjnego w zamian za otwarcie konta. Bank liczy, że jeżeli Ty będziesz zadowolony z poziomu usług w danym banku to będziesz chciał skorzystać z innych jego produktów. </p>
+                </section>
+                <section class="answer">
+                    <h4>Czy bank nie zaplanował jakiegoś haczyka?</h4>
+                    <p>Podstawą każdej promocji bankowej jest jej regulamin. Określa on ściśle wszystkie zasady, jakie obowiązują podczas trwania promocji. Znajdziesz tam zarówno swoje obowiązki, ale również obowiązki banku. Żadna ze stron nie może złamać takiego regulaminu, to dla Ciebie dodatkowa gwarancja</p>
+                </section>
+                <section class="answer">
+                    <h4>Czy muszę płacić podatek od nagrody?</h4>
+                    <p>Każdy regulamin, dokładnie reguluje tę kwestię, dlatego warto zwrócić na to uwagę. Nie mniej, z własnego doświadczenia wiem, że zazwyczaj nagrody są zwolnione z podatku. A jeżeli taki podatek wystąpi to bank sam pokrywa jego koszty. </p>
+                </section>
+                <section class="answer">
+                    <h4>Czy to uczciwe otwierać konto tylko dla bonusu?</h4>
+                    <p>A dlaczego nie? Przecież każdy ma prawo przetestować rachunek w takim banku, w jakim chce. Banki organizując promocje mają świadomość, że większość osób szybko zrezygnuje z ich usług, ale zależy im żeby jak najwięcej osób poznało je od podszewki.</p>
+                </section>
+                <section class="answer">
+                    <h4>Czy bank zawsze wypłaca premie?</h4>
+                    <p>Bank może nie dać klientowi nagrody tylko i wyłącznie wtedy, gdy ten nie spełni jakiegoś warunku promocji. Jeżeli spełnisz wszystkie warunki opisane w regulaminie możesz być pewien, że otrzymasz nagrodę. </p>
+                </section>
+                <section class="answer">
+                    <h4>Czy nie ma kary za zamknięcie konta?</h4>
+                    <p>W takim wypadku uśmiecha się do nas regulamin, który dokładnie reguluje tę kwestię. Jeżeli w regulaminie nie ma zawartej informacji, do kiedy należy utrzymać konto/kartę, to przysługuje Ci prawo do zrezygnowania z usługi banku w dowolnym momencie – nawet zaraz po odebraniu nagrody. </p>
+                </section>
+            </div>
+        </article>
+        <article id="contact" class="contact">
+            <h2 class="headings">Kontakt</h2>
+            <p>Jak masz jakieś pytanko poniżej możesz je zadać</p>
+            <section class="form-contact">
+
+                <div class="ilustration-question">
+                    <img src="ask-customer-feedback (2).png" alt="Dwóch gości z pytajnikiem">
+                </div>
+                <form action="" class="form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" class="form-input">
+                    <br>
+                    <label for="e-mail">E-mail: </label>
+                    <input type="email" id="e-mail" class="form-input">
+                    <br>
+                    <label for="message" class="message-label"> Message:</label>
+                    <textarea name="message" id="message" cols="30" rows="9" placeholder="Write something ...."></textarea>
+                    <br>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </form>
+
+            </section>
+
+        </article>
+    </main>
+    <footer class="footer">
+        <p>Dołącz do naszej społeczności i zacznij zarabiać</p>
+        <section class="social-media">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </section>
+        <p>&copy;Luckownia 2021</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/ce9a2f3e3d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+        $('a[href*="#"]').on('click', function(e) {
+            e.preventDefault()
+
+            $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top,
+                },
+                500,
+                'linear'
+            )
+        })
+
+        gsap.registerPlugin(ScrollTrigger);
+        const aboutMe = document.querySelector(".about-us");
+        const mainPage = document.querySelector(".main-page");
+        gsap.fromTo(aboutMe.children, {
+            y: '+=50',
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 1,
+            ease: 'easeInOut',
+            scrollTrigger: {
+                trigger: mainPage,
+                start: 'bottom 40%'
+            }
+        });
+
+    </script>
+</body>
+
+</html>
